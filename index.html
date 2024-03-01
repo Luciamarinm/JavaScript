@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript" src="externo.js"></script>
+    <script type="text/javascript">
+        //Información no visible en el navegador
+        let a = 5;
+        let b = 3;
+    </script>
 </head>
 <body>
-    
+    <h1>Primera página</h1>
+    <script type="text/javascript"> //Información visible en el navegador
+        document.write("Primer texto");
+        document.write("<br>a + b = " + a+b); //Vienen de script en head 
+        document.write("<br>c + d = " + c+d); //Vienen de script en head pero externo
+
+    </script>
+    <p>Pie de página</p>
 </body>
 </html>
