@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="text/javascript" src="externo.js"></script>
-    <script type="text/javascript">
-        //Información no visible en el navegador
-        let a = 5;
-        let b = 3;
-    </script>
+
 </head>
 <body>
-    <h1>Primera página</h1>
-    <script type="text/javascript"> //Información visible en el navegador
-        document.write("Primer texto<br>");
-        document.write("a + b = " + a + b + "<br>"); //Vienen de script en head 
-        document.write("c + d = " + c + d + "<br>"); //Vienen de script en head pero externo
-        document.write("Segundo texto<br>");
+    <script type="text/javascript">
+        let num1 = 5;
+        document.write(num1);
+        document.write("<br>");
+        num1++;
+        document.write(num1);
+        /*
+        And es con &&
+        Or es con || 
+        Not es con !
+        Igualdad ==
+        Igualdad estricta === si el valor es igual y tienen el mismo tipo
+        Diferente que !==
+
+        */
     </script>
-    <p>Pie de página</p>
 </body>
 </html>

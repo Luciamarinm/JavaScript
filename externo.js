@@ -22,4 +22,5 @@ Tipos de datos:
 var es para declarar una variable de manera global
 let se delimita con {}
 const tiene un valor que no se puede modificar, los nombres de las variables deben ir en mayúsculas
+
 */
