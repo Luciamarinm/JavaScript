@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript"> 
+
+        //Ejercicio edad y precio
+        let edad = prompt("¿Cual es tu edad?");
+        let edadRestante;
+        
+        document.write(`Tu edad es: ${edad}<br>`);
+        if(edad >= 18) {
+            document.write("Eres mayor de edad");
+            document.write("<br>");
+            let dinero = prompt("¿Cuanto dinero tienes?");
+            if(dinero < 150) {
+                    let dineroRestante = 150 - dinero;
+                     document.write(`Te faltan ${dineroRestante}€.`);
+                     document.write("<br>");
+                } else{
+                    document.write("Puedes sacarte el carné");
+                    document.write("<br>");
+                }
+        } else {
+            edadRestante = 18 - edad;
+            document.write(`Te quedan ${edadRestante} años para ser mayor de edad.`);
+        }
+    
+        document.write("<br>");
+        document.write("Acabamos de evaluar la edad del candidato"); 
+    
+        //Ejercicio nota 
+        let nota = prompt("Introduce la nota del examen");
+
+        if(nota >= 0 && nota < 5) {
+            document.write(`Tu calificación es: ${nota} insuficiente`);
+        } else if(nota >= 5 && nota < 7) {
+            document.write(`Tu calificación es: ${nota} suficiente`);
+        } else if(nota >= 7 && nota < 9) {
+            document.write(`Tu calificación es: ${nota} notable`);
+        }else if(nota >= 9 && nota <= 10) {
+            document.write(`Tu calificación es: ${nota} sobresaliente`);
+        } else {
+            document.write(`Tu calificación es: ${nota} erronea`);
+        }
+    </script>
+</body>
+</html>
