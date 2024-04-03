@@ -24,3 +24,11 @@ let se delimita con {}
 const tiene un valor que no se puede modificar, los nombres de las variables deben ir en mayúsculas
 
 */
+
+//Conversiones entre tipos
+
+let a = 7;
+let b = "5";
+
+document.write(a+b);
+
