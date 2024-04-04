@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        let contador = 0;
+
+        //While
+        while(contador < 4) {
+            contador++;
+            document.write(`Ejecución de código nº ${contador} <br>`);
+        }
+
+        let numero = prompt("Introduce un número");
+        while(numero < 0) {
+            numero = prompt("Introduce un número positivo");
+        }
+        document.write(Math.sqrt(numero) + "<br>");
+
+        //Do while
+        let numero2; //Hay que declarar la variable antes, si no solo existirá en el bucle
+        do{
+            
+            numero2 = prompt("Introduce un número");
+        }while(numero2 < 0);
+        document.write(Math.sqrt(numero2) + "<br>");
+
+        //Ejercicio
+        /*Crea un programa JavaScript que se ejecute en el navegador.       
+        El programa generará un nº aleatorio entre 1 y 100 que nosotros desconocemos. 
+        El programa pedirá desde una ventana de prompt que introduzcamos un nº entre 1 y 100. 
+        Si el nº introducido por nosotros en la ventana de prompt es menor que el nº aleatorio 
+        generado por el programa, deberá salir una ventana de alert señalando que
+        el nº es “más alto”.
+
+        Si por el contrario, el nº introducido en la ventana de prompt es mayor que el generado
+        por el programa, deberá salir una ventana de alert señalando que el nº es “más bajo”.
+
+        Todo este proceso se repetirá hasta que poco a poco con las pistas de
+        “Más alto” y “Más bajo” acertemos el nº aleatorio generado por el programa.
+        En ese momento saldrá en la página web el mensaje: “Correcto! 
+        Lo has adivinado en x intentos” donde x corresponde al nº de intentos consumidos 
+        en averiguar el nº.*/
+
+        //Con floor hacemos que no tenga decimales
+        //Con random que sea aleatorio
+        //*100 para que sea cifra máxima de 100
+        //+1 para que sea minimo 1
+       // let numeroAleatorio = Math.floor((Math.random() * 100) + 1);
+        let numAleatorio = parseInt((Math.random() * 100) + 1);
+        let numUsuario;
+        let intentos = 0;
+
+        do {
+            numUsuario = prompt("Introduce un número");
+            if(numUsuario<numAleatorio) alert("El número introducido es más bajo que el aleatorio");
+            if(numUsuario>numAleatorio) alert("El número introducido es más alto que el aleatorio");
+            intentos++;
+        }while(numAleatorio!=numUsuario);
+
+        document.write(`Los números son iguales, fueron necesarios ${intentos} intentos`);
+
+    </script>
+</body>
+</html>
