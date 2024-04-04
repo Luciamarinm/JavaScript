@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        for(let i  = 1 ; i <= 10 ; i++) {
+            document.write("Contador: " + i + " ");
+        }
+        document.write("<br>");
+        for(let i  = 10 ; i > 0 ; i--) {
+            document.write("Contador: " + i + " ");
+        }
+        document.write("<br>");
+        for(let i  = 10, y = 2 ; i > 0 ; i--, y+=2) {
+            document.write("<br>");
+            document.write("Contador i: " + i + " ");       
+            document.write("Contador y: " + y + " ");
+        }
+        document.write("<br>");
+        let inicio = prompt("Introduce un número para iniciar");
+        let final = prompt("Introduce un número para terminar");
+        for(let i  = inicio ; i <= final ; i++) {
+            
+            document.write("Contador i: " + i + " ");       
+
+        }
+        document.write("<br>");
+        let continuar = true;
+        for(let i  = 0 ; continuar ; i++) {
+            
+            document.write("Contador i: " + i + " ");       
+            if(i == 5) {
+                continuar = false;
+            }
+        }
+        document.write("<br>");
+        //Ejercicio
+        /*
+        El programa pedirá introducir un nº desde una ventana de prompt y calculará el factorial
+        de dicho nº.
+
+        El factorial de un nº se representa matemáticamente con el símbolo! y es el resultado
+        de multiplicar ese nº por todos los que le preceden. Por ejemplo 5!=5x4x3x2x1, es decir,
+        5!=120.
+
+        El programa debe utilizar un bucle for para hallar el resultado y mostrar este
+        en el documento web.
+        */
+
+        let numFactorial = prompt("Introduce un número");
+        document.write(numFactorial + "! = " + numFactorial);
+        let factorial = 5;
+        for(i = numFactorial-1 ; i > 0 ; i--) {
+            
+            
+                document.write(" x " + i);
+            
+        
+            factorial *= i;
+            
+        }
+        document.write("<br>");
+        document.write(numFactorial + "! = " + factorial);
+
+    </script>
+</body>
+</html>
