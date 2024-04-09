@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        //Ejemplo 1
+        let arroba = false;
+        let mail = "luciamarinm@gmail.com";
+        let mail2 = "luciamarinmgmail.com";
+        let mail3 = "luciamarinm@@gmail.com";
+        let mail4 = "luciamarinmgmail.com";
+
+        document.write(mail + "<br>");
+        for(let i = 1 ; i<mail.length + 1; i++) {
+            document.write("Evaluando carácter: " + i + " del email<br>");
+            if(mail[i]=="@"){
+                document.write("La arroba está en el carácter: " + i + "<br>");
+                arroba = true;
+                //Sale del bucle cuando ha encontrado lo que buscaba
+                break;
+            }
+        }
+
+        if(arroba) {
+            document.write("Mail correcto <br>");
+        } else {
+            document.write("Mail incorrecto, no tiene arroba <br>");
+        }
+
+        //Ejemplo 2
+        let naciones = [];
+        let contador = 0;
+        let contador2 = 0;
+
+      /*  do {
+            contador += 1;
+            naciones[contador] = prompt("Introduce una nación \nPulsa cancelar para salir");
+        }while(naciones[contador]!=null);
+
+        for(let i = 0; i<naciones.length ; i++) {
+            contador2++;
+            document.write(contador2);
+            if(naciones[i] =="España" || naciones[i] =="españa" || naciones[i] =="ESPAÑA") {
+                document.write("España encontrada<br>");
+                break;
+            }else {
+                document.write(naciones[i] + "<br>");
+            }
+        }*/
+
+        while(true) {
+            naciones[contador] = prompt("Introduce una nación \nPulsa cancelar para salir");
+            //Cuando introduces España, se sale del bucle
+            if(naciones[contador] =="España" || naciones[contador] =="españa" || naciones[contador] =="ESPAÑA") {
+                document.write("España encontrada<br>");
+                break;
+            }
+            contador += 1;
+        }
+
+        //Ejemplo3
+        let ciudades = [["Bogota", "Medellín", "Cali"],["Barcelona", "Madrid", "Málaga"],["Roma", "Milán", "Venecia"]];
+        let contadorCiudades = 0;
+        //Crear una label para especificar una acción
+        buclePrincipal:for(let i = 0 ; i < 3 ; i++) {
+            document.write("Buecle principal<br>")
+            for(let j = 0 ; j < 3 ; j++) {
+            document.write(ciudades[i][j] + "<br>");
+                if (ciudades[i][j]=="Madrid") {
+                    document.write("Madrid encontrada<br>");
+                    break buclePrincipal;
+                }
+            }
+            
+        }
+
+    </script>
+</body>
+</html>
