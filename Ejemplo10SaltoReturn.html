@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+        //No puede usarse return si no hay una función
+
+        //let numero = parseInt(prompt("Introduce un número"));
+        let numero = prompt("Introduce un número");
+        document.write("El primer número introducido es: " + numero + "<br>")
+        //let numero2 = parseInt(prompt("Introduce otro número"));
+        let numero2 = prompt("Introduce otro número");
+        document.write("El segundo número introducido es: " + numero2 + "<br>")
+        let multiplicacion;
+        //Función
+        //Parentesis es la zona de parámetros
+        function frases() {
+            document.write("Texto de ejemplo 3<br>");
+        }
+        function frases2() {
+            return "Texto de ejemplo 6<br>";
+        }
+
+        //Podemos usar cualquier nombre en los parametros
+        function numeros (numero, numero2) {
+            //Mostramos el valor que recibimos en el parametro
+            document.write("Valor que recibimos del primer parametro: " + numero + "<br>");
+            document.write("Valor que recibimos del segundo parametro: " + numero2 + "<br>");
+            if(isNaN(numero) || isNaN(numero2)) {
+                return "Uno de los valores no es un número";
+            }
+            let calculo = numero * numero2;
+            //Devuelve un resultado que hay que asignar a una variable al llamar la función
+            
+
+            return calculo;
+
+            //Todo lo escrito despues no lo procesará
+            //No va a mostrarlo
+            document.write("Hola<br>");
+        }
+
+        document.write("Texto de ejemplo 1<br>");
+        document.write("Texto de ejemplo 2<br>");
+        frases(); //Lama a la función y muestra el texto 
+        document.write("Texto de ejemplo 4<br>");
+        document.write("Texto de ejemplo 5<br>");    
+        frases2();
+
+        let frase2 = frases2();
+        document.write(frase2);
+        //Asignamos el valor que nos devuelve el return cuando llamamos la función
+        //Indicamos el valor del parametro dentro del parentesis que enviaremos a la función
+        multiplicacion = numeros(numero, numero2);
+        //Mostramos el valor que recibimos de la función
+        document.write("Valor que recibimos de la función que multiplica los números enviados: " + multiplicacion + "<br>");
+
+    </script>
+</body>
+</html>
