@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+        function factorial(x) {
+            //Comprobar que no hay un error
+
+            try{
+                if( x < 0) throw new Error("Número negativo introducido");
+            } catch(e) {
+                document.write(e);
+            }
+
+            //Si es un error, todo lo demás no se procesa
+            let factorial = 1;
+            document.write("El factorial de " + x + " es: "); 
+            for (factorial; x > 0 ; x--) {
+                
+                if(x == 1) {
+                document.write(x + " = ");
+                } else {
+                    document.write(x + " x " ); 
+                    factorial *= x; 
+                }
+            }
+            return factorial;
+        }
+
+        let numero = parseInt(prompt("Introduce un número positivo"));
+        document.write(factorial(numero));
+
+
+
+    </script>
+</body>
+</html>
