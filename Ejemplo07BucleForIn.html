@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+        //Crear un objeto
+        let Coche = {color: "azul", peso: 1200, potencia: 250, cilindrada: 2000};
+
+        let claveValor = "";
+        //Recorrerlo con bucle for of
+        //keys son las propiedades
+        document.write("Mostrar las propiedades<br>");
+        document.write("Usando bucle for of:<br>");
+        for(let propiedad of Object.keys(Coche)) {
+            claveValor += propiedad;
+            claveValor += " ";
+        }
+        //Mostrar las propiedades
+        document.write(claveValor);
+        document.write("<br>");
+        document.write("Usando bucle for in:<br>");
+        //Recorrerlo con bucle for in
+        for(let propiedad in Coche) {
+            //Mostrar las propiedades
+            document.write(propiedad + " ");
+        }
+        document.write("<br>");
+
+        //Vaciamos variable
+        claveValor= "";
+        
+        //Mostrar valores
+        //entries son los valores (k= propiedades, v= valores)
+        document.write("Mostrar las propiedades y los valores<br>");
+        document.write("Usando bucle for of:<br>");
+        //Recorrerlo con bucle for of
+        
+        for(let [k, v] of Object.entries(Coche)) {
+            claveValor += k + " : " + v;
+            claveValor += " ";
+        }
+        
+        //Mostrar propiedades y los valores
+        document.write(claveValor + "<br>");
+
+        document.write("Usando bucle for in:<br>");
+        //Recorrerlo con bucle for in
+        for(let propiedad in Coche) {
+            //Mostrar las propiedades y valores
+            document.write(propiedad + " : " + Coche[propiedad] + " ");
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
