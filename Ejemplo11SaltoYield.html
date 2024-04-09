@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+    let desde = prompt("Introduce un número");
+    let hasta = prompt("Introduce otro número");
+        //Funcion generador
+        function* rango(desde, hasta) {
+            for (let i = desde ; i <= hasta ; i++) {
+
+                //Nos enviará los valores uno a uno
+                yield i;
+            }
+        }
+
+    let numero = rango(desde, hasta);
+    document.write(numero.next().value + "<br>");
+    document.write(numero.next().value + "<br>");
+    </script>
+
+</body>
+</html>
