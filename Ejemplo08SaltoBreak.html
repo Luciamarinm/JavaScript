@@ -79,6 +79,38 @@
             
         }
 
+        //Ejercicio 
+        /*
+        Crea un programa que pida mediante ventanas de prompt 2 números. El programa debe mostrar
+        los 3 primeros números primos comprendidos en el rango de los números introducidos.
+        Por ejemplo: Si introducimos como primer número un 5 y como segundo número un 20, el
+        programa debe mostrar los 3 primeros números primos comprendidos entre 5 y 20, es decir,
+        “5 7 11”.
+        Debes incluir en tu programa la instrucción “break”
+        */
+
+        let num1 = parseInt(prompt("Introduce un número"));
+        let num2 = parseInt(prompt("Introduce otro número"));
+        let contadorPrimos = 0;
+
+        for(let nEvaluar = num1 ; nEvaluar < num2 ; nEvaluar++) {
+            let primo= true;
+            for(let i = 2 ; i < nEvaluar ; i++) {
+                if(nEvaluar % i == 0) {
+                    
+                    primo= false;
+                    break;
+                }
+            }
+            if(primo) {
+                document.write(nEvaluar + "<br>");
+                contadorPrimos++;
+                if(contadorPrimos == 3) {
+                    break;
+                }
+            }
+        }
+
     </script>
 </body>
 </html>
