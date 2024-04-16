@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+/*
+    4 Formas de crear Arrays 
+    -Arrays literales
+    -Con operador spread
+    -Con constructor Array()    
+    -Con métodos of() y from()
+*/
+        //Array literal
+        let num = [];
+        let numeros = [7,8,9,4,5];
+        document.write(numeros[2]);
+        document.write("<br>");
+        for(let i = 0 ; i < numeros.length ; i++) {
+            document.write(numeros[i]+" ");  
+        }
+        document.write("<br>");
+
+        //Operador Spread se usa con ... y añade elementos a un array donde se señala
+        let copia_numeros = [...numeros];
+        let variante_numeros = [7,8,...numeros,4,5];
+        for(let i = 0 ; i < copia_numeros.length ; i++) {
+            document.write(copia_numeros[i]+" ");  
+        }
+        document.write("<br>");
+        for(let i = 0 ; i < variante_numeros.length ; i++) {
+            document.write(variante_numeros[i]+" ");  
+        }
+        document.write("<br>");
+        //Para crear un array con tantas posiciones como carácteres
+        let nombre = [..."Lucía Marín"];
+        for(let i = 0 ; i < nombre.length ; i++) {
+            document.write("nombre["+i+"]" + nombre[i]+" ");  
+        }
+        document.write("<br>");
+
+        //Crear Array con constructor
+        let nuevo = new Array();//No especificar cantidad de elementos
+        let viejo = new Array(5);//Especificar cantidad de elementos
+        let ejemplo = new Array(5,8,5,6); //Con elementos añadidos
+        //Si queremos crear un array con un solo valor añadido
+        let elemento = Array.of(15);//Array con un elemento de valor 15
+
+        //Crear array con método from
+function suma_numeros(valor) {
+    return valor*2;
+}
+
+        let nuevo_ejemplo = Array.from(ejemplo);
+        for(let i = 0 ; i < ejemplo.length ; i++) {
+            document.write(ejemplo[i]+" ");  
+        }
+        document.write("<br>");
+        //Esto ejecuta la función
+        let ampliar_ejemplo = Array.from(ejemplo, suma_numeros);
+        for(let i = 0 ; i < ampliar_ejemplo.length ; i++) {
+            document.write(ampliar_ejemplo[i]+" "); 
+        }
+        document.write("<br>");
+        let palabra = "Verano";
+        let ejemploString = Array.from(palabra);
+        for(let i = 0 ; i < ejemploString.length ; i++) {
+            document.write("ejemploString["+i+"]" + ejemploString[i]+" ");  
+        }
+        document.write("<br>");
+
+        //Métodos de Array
+
+        //Añadir y eliminar elementos
+        let paises = new Array("España", "Reino Unido", "Irlanda");
+        document.write(paises);
+        document.write("<br>");
+        //Lo añade en la posición que especifiquemos
+        //Si indicamos in índice que no siga el orden, creará elementos vacíos
+        paises[8] = "Alemania"; 
+        document.write(paises);
+        document.write("<br>");
+        //Lo añade al final del array
+        paises.push("Italia", "Francia");
+        document.write(paises);
+        document.write("<br>");
+        //Lo añade al inicio del array
+        paises.unshift("Suiza", "Holanda");
+        document.write(paises);
+        document.write("<br>");
+        //Elimina el último elemento
+        paises.pop();
+        document.write(paises);
+        document.write("<br>");
+        //Elimina el primer elemento
+        paises.shift();
+        document.write(paises);
+        document.write("<br>");
+        //Eliminar valor del elemento determinado
+        delete paises[2];
+        document.write(paises);
+        document.write("<br>");
+
+        //Recorrer array con for of
+        let lista = "";
+        for(let pais of paises) {
+            lista += pais+ " ";
+        }
+        document.write(lista);
+        document.write("<br>");
+        //Entries nos devuelve los índices
+        for(let [indice, pais] of paises.entries()) {
+            document.write(indice + " " + pais + "<br>");
+
+        }
+        document.write("<br>");
+        //Recorrer array con foreach
+        paises.forEach(pais => {
+            //No añade los huecos indefinidos
+            document.write(pais.toUpperCase() + " ");
+        })
+        document.write("<br>");
+
+
+        //Arrays multidimensionales
+        let europa=[["España", "Portugal", "Francia"],["Madrid", "Lisboa", "París"]];
+        document.write(europa[1][1]);
+        document.write("<br>");
+
+        let tablas = new Array(11);
+        for(let i = 0 ; i < tablas.length; i++) {
+            tablas[i] = new Array(11);
+        }
+        for(let i = 0 ; i < tablas.length; i++) {
+            
+            for (let j = 0 ; j < tablas[i].length; j++) {
+                tablas[j][i] = i * j;
+                document.write(tablas[j][i] + " x " + tablas[j][i] + " = " + (j*i) + "<br>");
+            }
+        }
+
+    </script>
+
+</body>
+</html>
