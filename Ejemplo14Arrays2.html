@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //Métodos de la clase Array
+        //Métodos para recorrer Arrays con funciones
+
+        let numeros = [5,10,15,20];
+        let resultado_suma = 0;
+        let resultado_funcion = 0;
+
+        //Usando forEach
+        numeros.forEach(function (elemento_array) {
+            resultado_suma += elemento_array;
+            document.write(elemento_array + " ");
+        });
+        document.write("<br>");
+        document.write(resultado_suma);
+        resultado_suma = 0;
+        function sumando (valor) {
+            resultado_suma += valor;
+        }
+        document.write("<br>");
+        sumando(5);
+        document.write(resultado_suma);
+
+        numeros.forEach(function (valor) {
+            resultado_funcion += valor;
+            
+        });
+        document.write("<br>");
+        document.write(resultado_funcion);
+        document.write("<br>");
+        document.write("hola");
+        document.write("<br>");
+
+        //Usando map
+        function cuadrado_valores(valor){
+            return valor*valor;
+        }
+
+        document.write(numeros.map(cuadrado_valores));
+        console.log(numeros.map(cuadrado_valores));
+        document.write("<br>");
+        //Simplificar
+        document.write(numeros.map(valor => valor*valor));
+        document.write("<br>");
+
+        let alturas = [190, 170, 175, 200, 160];
+        document.write(alturas.map(valor => " Peso ideal: " + (valor-110)));
+        document.write("<br>");
+
+        let edades = [28, 15, 25, 69, 81, 36, 51, 55, 101];
+        function edad_laboral (edad) {
+            if(edad >= 18 && edad <= 67) {
+                return edad;
+            }
+        }
+
+        //Filtrar
+        document.write(edades.filter(edad_laboral));
+        document.write("<br>");
+        document.write(edades.filter(edad_laboral=> edad_laboral >= 18 && edad_laboral <= 67));
+        document.write("<br>");
+
+        //FindIndex
+        let nombres =["Ana", "Juan", "Pedro", "María", "Juan"];
+        //Solo encuentra el primer Juan y muestra su índice, luego deja de buscar
+        document.write(nombres.findIndex(encontrar => encontrar == "Juan")); 
+        document.write("<br>");
+        //Cuando un valor cumple con la condición, muestra su índice y deja de buscar
+        document.write(edades.findIndex(encontrar => encontrar < 30)); 
+        document.write("<br>");
+
+        //Find
+        //Muestra el primer valor que coincide con las condiciones
+        document.write(edades.find(encontrar => encontrar < 30)); 
+        document.write("<br>");
+        document.write(nombres.find(encontrar => encontrar.charAt(0) == "M")); 
+        document.write("<br>");
+        document.write(nombres.find(encontrar => encontrar.charAt(encontrar.length-1) == "o"));
+        document.write("<br>");
+
+        //Every
+        //Devolverá un booleano según si TODOS cumplen o no la condición
+        document.write(edades.every(menores => menores < 100));
+        document.write("<br>");
+       
+        //Some
+        //Devolverá un booleano según si ALGUNOS cumplen o no la condición
+        document.write(edades.some(menores => menores > 100));
+        document.write("<br>");
+        document.write(nombres.some(encontrar => encontrar.charAt(0) == "J"));
+        document.write("<br>");
+        
+        if(nombres.some(encontrar => encontrar.charAt(0) == "J")) document.write("Hay algún elementoq ue comienza por J<br>");
+
+                //Queue uno entra al final y el primero se borra
+        //Stack apila uno entra al principio y el último se borra
+
+        //Añadimos 2 elementos al final
+        edades.push(90,95);
+        document.write(edades);
+        document.write("<br>");
+        //Borramos el último
+        edades.pop();
+        document.write(edades);
+        document.write("<br>");
+        //Lo borra del inicio del array
+        edades.shift();
+        document.write(edades);
+        document.write("<br>");
+        //Lo añade al inicio del array
+        edades.unshift(5, 56);
+        document.write(edades);
+        document.write("<br>");
+        //Eliminar valor del elemento determinado
+        delete edades[2];
+
+        //Subarray
+        //Slice: Creamos un array de los elementos a partir del 2 y hasta el 4 a partir de otro array
+        document.write(edades.slice(2,4));
+        document.write("<br>");
+        let nuevas_edades = edades.slice(0,4);
+        document.write(nuevas_edades);
+        document.write("<br>");
+
+        //Splice: Edita el array
+        //A partir del 4 elemento añade los elementos, al haber un 0 no borra ninguno
+        document.write(edades.splice(4,0, "Uno", "Dos", "Tres"));
+        document.write(edades);
+        document.write("<br>");
+
+        //Fill: Completa el array con el contenido que se le indica
+        let miArray = new Array(5);
+        miArray.fill("Juan");
+        //A partir del elemento 2 introduce otro contenido
+        miArray.fill("Carlos", 2);
+        document.write(miArray);
+        document.write("<br>");
+
+        //Buscar en un array
+        let personas = ["Antonio", "Carlos", "Antonio", "Óscar", "Francisco", "Antonio"];
+        //Devuelve el primer elemento que coincide
+        document.write(personas.indexOf("Antonio"));
+        document.write("<br>");
+        //Devuelve el último elemento que coincide
+        document.write(personas.lastIndexOf("Antonio"));
+        document.write("<br>");
+        //Devuelve el elemento que coincida a partir del índice que le indiquemos
+        document.write(personas.indexOf("Antonio", 1));
+        document.write("<br>");
+        
+        //Enviamos el array y el valor del elemento que buscamos
+        function encuentraTodos(elArray, elementoBuscado) {
+            //Creamos uno vacío
+            let resultados = [];
+            //Una variable con la longitud del array
+            longitud = elArray.length;
+            //Otra variable para guardar el índice
+            posicion = 0;
+
+            //Mientas el índice sea menor que la longitud del array
+            while (posicion < longitud) {
+                //Buscamos el valor del elemento dentro del array en la determinada posición
+                posicion = elArray.indexOf(elementoBuscado, posicion);
+                //Si el valor es negativo salimos del bucle
+                if(posicion == -1) {
+                    break;
+                }
+                //Si coincide añadimos el valor del índice a resultados
+                resultados.push(posicion);
+                //Aumentamos el valor de posición para seguir el bucle
+                posicion+=1;
+            }
+            //Devolvemos el valor del array
+            return resultados;
+        }
+        //Llamamos a la función enviando el array y el valor
+        document.write(encuentraTodos(personas, "Antonio"));
+        document.write("<br>");
+
+        //Convertir array a texto
+        document.write(personas.join());
+        document.write("<br>");
+        //Para añadir contenido entre elementos
+        document.write(personas.join(" - "));
+        document.write("<br>");
+        let texto = personas.join(" - ");
+        document.write(texto);
+        document.write("<br>");
+
+        //usando toString()
+        document.write(personas.toString());
+
+    </script>
+</body>
+</html>
