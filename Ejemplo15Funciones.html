@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Sin parámetros
+        //Da igual si la llamamos antes o después de la función
+        saludos();
+        function saludos() {
+            document.write("Saludos<br>");
+        }
+        saludos();
+
+        //Con parámetros
+        //Da igual si la llamamos antes o después de la función
+        saludo(1);
+        saludo(2);
+        function saludo(numero) {
+            document.write("Saludo número " + numero + "<br>");
+        }
+        saludo(3);
+        saludo(4);
+        for(let i = 5 ; i <= 10; i++) {
+            saludo(i);
+        }
+
+        //Con return
+        function suma(numero1, numero2) {
+            let resultado = numero1 + numero2;
+
+            //Devuelve el valor
+            return resultado;
+        }
+        //Lo almacenamos en una variable
+        let resultado = suma(3,5);
+        document.write(resultado + "<br>");
+        //O lo imprimimos directamente
+        document.write(suma(3,5) + "<br>");
+
+
+        //EJEMPLO
+
+        function calculo_comisiones(ventas, antiguedad, zona) {
+            let comision = 0;
+            if(ventas > 1000) comision = (ventas *15/100);
+            if(antiguedad > 5) comision += 100;
+            if(zona == "norte") comision += 50;
+            if(zona == "sur") comision += 60;
+
+            return comision;
+        }
+
+        let total_ventas = prompt("Introduce las ventas de este mes");
+        let ant_empresa = prompt("Introduce la antigüedad en la empresa");
+        let zona_ventas = prompt("Introduce la zona de tu trabajo");
+        document.write("La comisión de este mes es: " + calculo_comisiones(total_ventas, ant_empresa, zona_ventas));
+        document.write("<br>");
+        //Expresiones de funciones
+
+        function area_cuadrado(lado) {
+            return lado * lado;
+        }
+
+        let lado_figura = prompt("Introduce el lado");
+        document.write("El área del cuadrado es " + area_cuadrado(lado_figura) + "<br>");
+
+        //Ejemplo
+        const lado_cuadrado = function area(lado) { return lado*lado;};
+        document.write(lado_cuadrado(7) + "<br>");
+
+        //Recursividad
+        function factorial(numero) {
+            let resultado = 1;
+
+            if(numero <= 1)  return 1;
+            else {
+                for(let i = 1 ; i <= numero ; i++) {
+                    resultado = resultado*i;
+                }
+                return resultado;
+            }
+            
+        }
+
+        document.write(factorial(5));
+        document.write("<br>");
+
+        //Con recursividad
+        const factorial_recursividad = function calculo_factorial(numero) {if(numero <= 1) return 1; else return numero * calculo_factorial(numero-1); };
+        document.write(factorial_recursividad(6));
+        document.write("<br>");
+
+        //Funciones arrow
+        const area_cuad = (lado) => {return lado*lado};
+        document.write(area_cuad(6));
+        document.write("<br>");
+
+        const area_triangulo = (base, altura) => {return (base*altura)/2};
+        document.write(area_triangulo(6,3));
+        document.write("<br>");
+
+        //Aún más simplificada
+        const area_tri = (base, altura) => (base*altura)/2;
+        document.write(area_tri(6,3));
+        document.write("<br>");
+
+        const area_c = lado => lado*lado;
+        document.write(area_c(6));
+        document.write("<br>");
+
+        //Funciones anidadas
+        function calc_hipotenusa(catetoA, catetoB) {
+            const cuadrado_cateto = (cateto)=> {return cateto*cateto};
+             
+            let suma = cuadrado_cateto(catetoA) + cuadrado_cateto(catetoB);
+            return Math.sqrt(suma);
+        }
+
+        let catetoA = 5;
+        let cateotB = 6;
+        document.write(calc_hipotenusa(catetoA, cateotB));
+
+        
+
+
+    </script>
+</body>
+</html>
