@@ -19,18 +19,18 @@
             let dinero = prompt("¿Cuanto dinero tienes?");
             if(dinero < 150) {
                     let dineroRestante = 150 - dinero;
-                     document.write(`Te faltan ${dineroRestante}€.`);
+                     document.write(`Te faltan ${dineroRestante}€.`); //Para introducir variables al texto
                      document.write("<br>");
-                } else{
-                    document.write("Puedes sacarte el carné");
-                    document.write("<br>");
-                }
+            } else{
+                document.write("Puedes sacarte el carné");
+                document.write("<br>");
+            }
         } else {
             edadRestante = 18 - edad;
             document.write(`Te quedan ${edadRestante} años para ser mayor de edad.`);
         }
         document.write("<br>");
-        document.write("Acabamos de evaluar la edad del candidato"); 
+        document.write("Acabamos de evaluar la edad del candidato<br>"); 
     
         //Ejercicio nota 
         let nota = prompt("Introduce la nota del examen");
@@ -41,7 +41,7 @@
             document.write(`Tu calificación es: ${nota} suficiente`);
         } else if(nota >= 7 && nota < 9) {
             document.write(`Tu calificación es: ${nota} notable`);
-        }else if(nota >= 9 && nota <= 10) {
+        } else if(nota >= 9 && nota <= 10) {
             document.write(`Tu calificación es: ${nota} sobresaliente`);
         } else {
             document.write(`Tu calificación es: ${nota} erronea`);

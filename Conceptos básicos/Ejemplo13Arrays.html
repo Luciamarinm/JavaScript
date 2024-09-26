@@ -136,12 +136,17 @@ function suma_numeros(valor) {
             tablas[i] = new Array(11);
         }
         for(let i = 0 ; i < tablas.length; i++) {
-            
+
             for (let j = 0 ; j < tablas[i].length; j++) {
                 tablas[j][i] = i * j;
-                document.write(tablas[j][i] + " x " + tablas[j][i] + " = " + (j*i) + "<br>");
             }
         }
+        for(let i = 0 ; i < tablas.length; i++) {
+            for (let j = 0 ; j < tablas[i].length ; j++) {
+                document.write(i + " x " + j + " = " + tablas[i][j] + "<br>");
+            }
+         }
+
 
     </script>
 

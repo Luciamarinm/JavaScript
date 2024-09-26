@@ -25,7 +25,6 @@
         //Do while
         let numero2; //Hay que declarar la variable antes, si no solo existirá en el bucle
         do{
-            
             numero2 = prompt("Introduce un número");
         }while(numero2 < 0);
         document.write(Math.sqrt(numero2) + "<br>");
@@ -61,9 +60,14 @@
             if(numUsuario<numAleatorio) alert("El número introducido es más bajo que el aleatorio");
             if(numUsuario>numAleatorio) alert("El número introducido es más alto que el aleatorio");
             intentos++;
+            if(numUsuario!=numAleatorio)document.write(`El número que ha elegido el usuario en el intento nº ${intentos} es: ${numUsuario} <br>`);
+            
         }while(numAleatorio!=numUsuario);
 
-        document.write(`Los números son iguales, fueron necesarios ${intentos} intentos`);
+        document.write(`El número aleatorio es: ${numAleatorio} <br>`);
+        document.write(`El número final que ha elegido el usuario es: ${numUsuario} <br>`);
+
+        document.write(`Los números son iguales, fueron necesarios ${intentos} intentos <br>`);
 
     </script>
 </body>

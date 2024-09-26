@@ -10,13 +10,20 @@
 
         let salarios = [];
         let trabajador = 0;
+
     //    for(let i = 0 ; i < 5 ; i++) {
         while(trabajador < 5){
-            let salario = prompt("Introduce salario del trabajador " + trabajador+1);
+            
+            let salario = prompt("Introduce salario del trabajador "  + trabajador);
             
             if(salario<1000) continue; //La siguiente línea no se usa
             salarios[trabajador]=salario-(salario*0.25);
+            document.write(salarios[trabajador] + "<br>");
+            
             trabajador++;
+            
+            
+
             
         }
         //Variable salario es diferente a la creada en el bucle for
