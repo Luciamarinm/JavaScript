@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        Los objetos heredan del prototipo Object
+        Se pueden crear objetos de 3 formas:
+        1:*/
+        let coche = {color: "rojo", potencia: 200};
+        document.write(coche.color + "<br>");
+
+        document.write(coche + "<br>");
+        console.log(coche);
+        
+        //2:
+        let coche2 = Object.create({color: "Azul", potencia: 500});
+        
+        console.log(coche);
+        coche.color="Verde";
+        console.log(coche);
+        coche["color"]="Amarillo";
+        console.log(coche);
+        coche["Pasajeros"] = 4;
+        console.log(coche);
+
+        for (let i = 0 ; i <5 ; i++) {
+            coche[`cilindrada${i}`] = 2000+(i*100);
+        }
+        document.write(coche.cilindrada0 + "<br>");
+
+        //3:
+
+        let p1 = {nombre: "Juan", edad: 18};
+        coche["Propietario"] = p1;
+        console.log(coche);
+        //Length
+        document.write(coche.color.length + "<br>");
+        //Delete
+        delete coche.color;
+        console.log(coche);
+        for (let p in coche) {
+            document.write(p + "<br>");
+        }
+
+        //Para añadir las características del coche a la furgoneta:
+       let furgoneta = {carga: 4500};
+        console.log(furgoneta);
+       /*  for (let clave of Object.keys(coche)) {
+            furgoneta[clave] = coche[clave];
+        }
+        console.log(furgoneta);*/
+        //Pero se hace mucho más sencillo con el método assign
+        Object.assign(furgoneta,coche);
+        console.log(furgoneta);
+
+        //JSON
+        //Serializar y deserializar
+        //Convertir Objeto a String con formato JSON
+        let cocheSerializado = JSON.stringify(coche);
+        document.write(cocheSerializado + "<br>");
+        //Volver a convertirlo a objeto
+        let cocheDeserializado = JSON.parse(cocheSerializado);
+        document.write(cocheDeserializado + "<br>");  
+        
+        document.write(coche + "<br>");
+        //Para mostrar la info como String
+        let coche3 = {color: "azul", potencia: 250, toString:function() {return "La potencia del coche es: " + `${this.potencia}`;}};
+        document.write(coche3.toString());
+
+        //Configuración regional segun en el país, cifras y fechas
+        //Cifras
+        let empleado = {
+            salario: 40000,
+            comision: 10000,
+            toString: function() { return `(${this.salario.toLocaleString}, ${this.comision.toLocaleString})`;}
+        }
+        document.write(empleado.toString()+"<br>");
+
+        //Fechas
+        let fecha = new Date(2024,9,27);
+        document.write(fecha+"<br>");
+        document.write(fecha.toLocaleString()+"<br>");
+
+        //Valor numérico de la fecha
+        document.write(fecha.valueOf()+"<br>");
+
+        //Mostrar valor de un String
+        let curso = new String("Curso JavaScript");
+        console.log(curso);
+        document.write(curso.valueOf()+"<br>");
+
+        //Forma antigua de asignar constantes previas a propiedades
+        const EJEMPLONOMBRE = "color";
+        function nombrePropiedad() {return "potencia" + "_coche"};
+        let coche4 = {};
+        coche4[EJEMPLONOMBRE] = "verde";
+        coche4[nombrePropiedad()] = 400;
+        console.log(coche4);
+
+        //Fusionar valores de varios objetos a uno nuevo
+        let coche5 = {color: "rojo", potencia: 500};
+        let furgoneta2 = {capacidad: "grande", autonomia: "extendida"};
+        let suv={...coche5, ...furgoneta2};
+        console.log(suv);
+
+        //Abreviatura de métodos
+        let triangulo = {
+            base: 12,
+            altura: 15,
+           // area: function() { return (this.base * this.altura)/2;}  abreviar
+            area() { return (this.base * this.altura)/2;}, 
+
+            get area() {
+                return (this.base * this.altura)/2;},
+            set area(nuevaBase) {
+                this.base = nuevaBase;
+            }
+        }
+      //  document.write(triangulo.area()+"<br>");
+        //Getters y setters
+        document.write(triangulo.area+"<br>");
+        triangulo.area = 100;
+        document.write(triangulo.area+"<br>");
+
+        let persona = {
+            nombre: "Juan",
+            apellido: "Díaz",
+            get dimeNombreCompleto() {
+                return `${this.nombre}`+ " " + `${this.apellido}`;
+            },
+            set dimeNombreCompleto(nuevoNombre) {
+                //cambia el valor, asignando cada valor a la propiedad cuando se separa con espacio
+                
+                [this.nombre, this.apellido] = nuevoNombre.split(" ");
+            }
+        }
+
+        document.write(persona.dimeNombreCompleto+"<br>");
+        persona.dimeNombreCompleto = "Lucía Marín";
+        document.write(persona.dimeNombreCompleto+"<br>");
+        
+    </script>
+</body>
+</html>
