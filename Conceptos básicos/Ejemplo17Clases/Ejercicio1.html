@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        Crea un programa JavaScript que se ejecute en el navegador.
+        Crea una clase con el nombre de “Vehículo”. Esta clase creará objetos de tipo vehículo con las
+        siguientes características:
+        • Método constructor que permita dar valor inicial a las siguientes propiedades:
+        o Modelo
+        o Marca
+        o Precio
+        o Km
+        • Métodos que permitan cambiar (setter) y obtener (getter) información de cada una de
+        las propiedades. (Método setter es aquel método cuyo nombre comienza por “set” y
+        getter el que comienza por “get”)
+        • Método que permita obtener por consola la marca y el modelo del Vehículo. Por ej:
+        “Renault Laguna”
+        • Crea un objeto que muestre marca y modelo.
+        */
+        class Vehiculo {
+            constructor(modelo, marca, precio, km) {
+                this._modelo = modelo;
+                this._marca = marca;
+                this._precio = precio;
+                this._km = km;
+            }
+            get modelo() {
+                return this._modelo;
+            }
+            set modelo(valor) {
+                this._modelo = valor;
+            }
+            get marca() {
+                return this._marca;
+            }
+            set marca(valor) {
+                this._marca = valor;
+            }
+            get precio() {
+                return this._precio;
+            }
+            set precio(valor) {
+                this._precio = valor;
+            }
+            get km() {
+                return this._km;
+            }
+            set km(valor) {
+                this._km = valor;
+            }
+            mostrarMarcaModelo() {
+                console.log(this.marca + " " + this.modelo);
+            }
+        }
+        let v1 = new Vehiculo("Mazda", "MX-5", 28000, 12000);
+        v1.mostrarMarcaModelo();
+    </script>
+</body>
+</html>
