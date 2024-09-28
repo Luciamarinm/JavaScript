@@ -9,9 +9,10 @@
     <script type="text/javascript">
     class Usuario {
         constructor(nombre, password, perfil) {
-            this.nombre= nombre;
-            this.password = password;
-            this.perfil = perfil;
+            //Hay que cambiar el nómbre de la variable del this y la otra si no da error
+            this._nombre= nombre;
+            this._password = password;
+            this._perfil = perfil;
         }
 
         saludar() {
@@ -37,7 +38,7 @@
         constructor(curso, nombre, password, perfil) {
             super(nombre, password, perfil); //Ejecuta el constructor de la clase padre
             //Sin esto no hereda nada
-            this.curso = curso;
+            this._curso = curso;
         }
 
         estudia(tema) {
