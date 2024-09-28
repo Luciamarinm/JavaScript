@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*Clases abstractas:
+        Es la clase padre de todas que define que métodos obligatoriamente deben tener todas
+        las demás que heredan de ella.
+        Si la clase abstracta tiene el método habla, todas las demás deberán tener el suyo própio
+        con sus própias características.
+        */
+        class Persona {
+
+            //Para que no se pueda instanciar
+            constructor() {
+                if(this.constructor === Persona){
+                    //Lanzar un error en consola
+                    throw new Error("La clase Persona es abstracta y no se puede instanciar");
+                }
+            }
+            //Lo que convierte a una clase en abstracta, son los métodos abstractos
+            //Si tiene un método abstracto, ya la convierte en abstracta, aunque todos los demás
+            //no lo sean
+            habla() {
+                //Un método abstracto se deja vacío
+                //Lanzamos un error para que si este método es llamado avise que está vacío 
+                //y hay que llamar a las otras clases
+                throw new Error("Este es un método abstracto, se debe llamar al método de las demás clases");
+            }
+        }
+
+        class Empleado extends Persona {
+            //Ahora está obligado a hablar
+            habla() {
+                return "El empleado habla";
+            }
+        }
+        class Alumno extends Persona {
+            //Ahora está obligado a hablar
+            habla() {
+                return "El alumno habla";
+            }
+        }
+
+        e1 = new Empleado();
+        a1 = new Alumno();
+        document.write(e1.habla()+"<br>");
+        document.write(a1.habla()+"<br>");
+        p1= new Persona();
+
+    </script>
+</body>
+</html>
