@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class Animal {
+            constructor(ojos, patas) {
+                this.ojos = ojos;
+                this.patas = patas;
+            }
+            come(alimento) {
+                return "El animal come " + alimento;
+            }
+            caracteristicas() {
+                return "El animal introducido tiene " + this.ojos + " ojos y " + this.patas + " patas.";
+            }
+        }
+
+        class Perro extends Animal {
+            constructor(ojos, patas, hocico) {
+                super(ojos, patas);
+                this.hocico = hocico
+            }
+            come(alimento){
+                return super.come("carne");
+            }
+            caracteristicas() {
+                //Extiende el método características de animal
+                return super.caracteristicas() + " y " + this.hocico + " hocico";
+            }    
+        }
+        let p1 = new Perro(2,4,1);
+        document.write(p1.caracteristicas());
+    </script>
+</body>
+</html>
