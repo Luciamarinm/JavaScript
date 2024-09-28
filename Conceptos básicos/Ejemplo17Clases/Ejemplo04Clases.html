@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //Mapea datos y su resultado, asignandolo a una variable de la clase Map()
+        let datos = new Map();
+        datos.set("dni", 5485649);
+        datos.set("nombre", "Juan");
+        datos.set("apellido","Marín");
+        datos.set("edad",27);
+        document.write(datos.get("nombre")+"<br>");
+
+        class MapaTipos extends Map{
+            constructor(valores, tipoClave, tipoValor) { //Para que pida solo Strings
+                if(valores) { //Si hemos añadido datos
+                    for(let [clave, valor] of valores) { 
+    //Si el dato es diferente al tipo de dato del primer parámetro del constructor(nombre, apelido, edad)
+                        if(typeof clave!== tipoClave || typeof valor!== tipoValor) {
+                           // document.write(`No se corresponden a los tipos de ${clave}, ${valor}<br>`);
+                            throw new TypeError (`Error en los tipos para ${clave}, ${valor}<br>`);
+                        }
+                    }
+                }
+                
+                //Puede tener 2 tipos de constructores
+                //super() vacío llama al constructor Map()
+                //Si le ponemos un valor llamamos al constructor Map(iterable)
+                super(valores);
+            }
+        }
+        //Crea el objeto
+        let misDatos = [["nombre", "Lucía"], ["apellido", "Díaz"], ["edad", 30]];
+        //Envía los datos al constructor y filtra que tipo de dato
+        let dato2 = new MapaTipos(misDatos, "string", "string");
+        document.write(dato2.get("nombre")+"<br>");
+
+    </script>
+</body>
+</html>
