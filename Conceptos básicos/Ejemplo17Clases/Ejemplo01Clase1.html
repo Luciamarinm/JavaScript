@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    class Usuario {
+        constructor(nombre, password, perfil) {
+            this.nombre= nombre;
+            this.password = password;
+            this.perfil = perfil;
+        }
+
+        saludar() {
+            document.write("HOLA<br>");
+        }
+
+        login() {
+            return "Estoy haciendo log in";
+        }
+
+        logout() {
+            return "Estoy haciendo log out"
+        }
+    }
+
+    class Estudiante extends Usuario {
+      /*  constructor(curso) {
+            super(); //Ejecuta el constructor de la clase padre
+            //Sin esto no hereda nada
+            this.curso = curso;
+        }*/
+       //Solo puede tener un constructor
+        constructor(curso, nombre, password, perfil) {
+            super(nombre, password, perfil); //Ejecuta el constructor de la clase padre
+            //Sin esto no hereda nada
+            this.curso = curso;
+        }
+
+        estudia(tema) {
+            return "Estoy estudiando " + tema;
+        }
+
+    }
+
+    let p1 = new Usuario("Lucía", "1234", "Mujer");
+    let p2 = new Usuario("José", "5678", "Hombre");
+    let e1 = new Estudiante("Matemáticas");
+    let e2 = new Estudiante("Física", "Sofía", "5246", "Mujer");
+    p1.saludar();
+    document.write(p1.nombre+"<br>");
+    document.write(e1.saludar()+"<br>");
+    document.write(e2.nombre+"<br>");
+
+</script>
+</body>
+</html>
