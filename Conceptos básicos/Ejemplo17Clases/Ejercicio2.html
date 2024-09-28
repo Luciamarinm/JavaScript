@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        Crea un programa JavaScript que se ejecute en el navegador.
+        • Sobre el ejercicio anterior, crea una clase con el nombre “Furgoneta” que herede de
+        “Vehículo”.
+        • Crea un constructor que permita dar estado inicial a las propiedades de modelo, marca,
+        precio, km y carga
+        • Crea método getter y setter que permita establecer y obtener la carga
+        • Crea método que permita obtener la marca, el modelo y la carga de los objetos de tipo
+        Furgoneta
+        • Crea un objeto de tipo Furgoneta para comprobar su funcionamiento
+        */
+        class Vehiculo {
+            constructor(modelo, marca, precio, km) {
+                //Hay que cambiar el nómbre de la variable del this y la otra si no da error
+                this._modelo = modelo;
+                this._marca = marca;
+                this._precio = precio;
+                this._km = km;
+            }
+            get modelo() {
+                return this._modelo;
+            }
+            set modelo(valor) {
+                this._modelo = valor;
+            }
+            get marca() {
+                return this._marca;
+            }
+            set marca(valor) {
+                this._marca = valor;
+            }
+            get precio() {
+                return this._precio;
+            }
+            set precio(valor) {
+                this._precio = valor;
+            }
+            get km() {
+                return this._km;
+            }
+            set km(valor) {
+                this._km = valor;
+            }
+            mostrarMarcaModelo() {
+                return this.marca + " " + this.modelo;
+            }
+        }
+        class Furgoneta extends Vehiculo {
+            constructor(modelo, marca, precio, km, carga) {
+                super(modelo, marca, precio, km);
+                this._carga = carga;
+            }
+            set carga(valor) {
+                this._carga = valor;
+            }
+            get carga() {
+                return this._carga;
+            }
+            mostrarMarcaModeloCarga() {
+                console.log(super.mostrarMarcaModelo(this._modelo) + " " + this._carga + " kg");
+            }
+        }
+
+        let f1 = new Furgoneta("Nissan", "Cargo", 45000, 15000, 6750);
+        f1.mostrarMarcaModeloCarga();
+    </script>
+</body>
+</html>
