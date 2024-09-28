@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script type="module">
+        //Para importar todas las funciones de un archivo externo
+        import * as misFunciones from "./ExtensionEjemplo01.js";
+        //Para importar funciones específicas
+        //import {calculoIva, calculoIRPF} from "./Ejemplo01.js";
+
+        function costeTotal(iva, irpf, coste) {
+            return coste+iva+irpf;
+        }
+        
+        //Para mostrar dentro de un contenedor
+        //Detecta los elementos por su id
+        let contenedor = document.getElementById("espacio");
+        let contenedor2 = document.getElementById("espacio2");
+        let contenedor3 = document.getElementById("espacio3");
+        let origen = document.getElementById("origen");
+        let boton = document.getElementById("conversor");
+        let coste = 0;
+        let iva= 0;
+        let irpf = 0;
+        
+        //Si la función está previamente hecha
+        //boton.addEventListener("click", costeTotal(misFunciones.calculoIva(coste), misFunciones.calculoIRPF(coste), parseInt(origen.value)));
+        //Decimos al botón que debe hacer
+        boton.addEventListener("click", ()=> {
+            //alert(origen.value);
+            coste = parseInt(origen.value);
+            iva= misFunciones.calculoIva(coste);
+            irpf = misFunciones.calculoIRPF(coste);
+            //misFunciones no sería necesario si no se importaran todas las funciones
+            contenedor.innerHTML = "IVA: " + iva;
+            contenedor2.innerHTML = "IRPF: " + irpf;
+            contenedor3.innerHTML = "TOTAL: " + costeTotal(iva, irpf, coste);
+        });
+
+    </script>
+    <input type="text" id="origen"><br><br>
+    <button id="conversor">Calcular</button><br><br>
+    <div id="espacio">IVA: </div>
+    <div id="espacio2">IRPF: </div>
+    <div id="espacio3">TOTAL: </div>
+</body>
+</html>
