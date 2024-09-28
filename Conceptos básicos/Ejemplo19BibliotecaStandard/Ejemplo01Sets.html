@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //Sets
+        /*-Almacenan cualquier tipo de valor
+        -Tiene propiedad size
+        -Es iterable con foreach
+        -No permite duplicados
+        -Métodos: add(), delete() y has()
+        */
+        const nombres = new Set();
+        nombres.add("Antonio");
+        nombres.add("Kaeli");
+        //No duplica elementos
+        nombres.add("Antonio");
+        console.log(nombres.size);
+        console.log(nombres);
+        //Verificar si existe ese elemento, devuelve booleano
+        console.log(nombres.has("Antonio"));
+        console.log(nombres.has("José"));
+        //Borrar un elemento
+        nombres.delete("Kaeli");
+        console.log(nombres);
+        //Borrar elementos
+        nombres.clear();
+        console.log(nombres);
+        nombres.add("Antonio");
+        nombres.add("Kaeli");
+        nombres.add("Paula");
+        nombres.add("Marisol");
+        nombres.add("Juan");
+        nombres.add("Bienve");
+        //Recorrer el set
+        nombres.forEach( nombre=> {
+            console.log(nombre);
+        });
+
+        //Quitar duplicados de array con un Set
+        const nombresArray = ["Juan", "Pepe", "María", "Pepe"];
+        const nombresSinDup = new Set(nombresArray);
+        nombresSinDup.forEach( nombre=> {
+            console.log(nombre);
+        });
+    </script>
+</body>
+</html>
