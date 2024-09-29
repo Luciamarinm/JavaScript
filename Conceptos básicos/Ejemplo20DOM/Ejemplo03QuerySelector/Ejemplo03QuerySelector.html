@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/fontawesome-all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script type="text/javascript">
+        //Para que el js actue cuando se cargue toda la página
         function localizaElemDom() {
             //querySelector solo devuelve un elemento, en su defecto el primero
             const card = document.querySelector('.card:nth-child(2)');
@@ -56,7 +57,7 @@
             encabezado2.classList.add("clase-personalizada");
             console.log(encabezado);
             //Para cambiar texto
-            const encabezado3 = document.querySelector(".contenido-hero h1").textContent= "Fantasía";
+            const encabezado3 = document.querySelector(".contenido-hero h1").textContent= "Fantasía el pedazo de viaje que me voy a pegar el año que viene";
             console.log(encabezado3);
             //Para acceder al texto sin hidden
             const encabezado4 = document.querySelector(".contenido-hero h1").innerText;
@@ -72,11 +73,9 @@
                     document.querySelector(".mi-viaje-plus").textContent= "Con viajes Píldoras";
                 }
             });
-        }
+        
 
         //Cambiar una imagen por otra
-        //Ojo sin el evento DOMContentLoaded no funciona
-        document.addEventListener("DOMContentLoaded", function() {
             const imagen = document.querySelector(".card img");
 
             imagen.addEventListener("mouseover", function() {
@@ -86,7 +85,7 @@
             imagen.addEventListener("mouseout", function() {
                 imagen.src = "img/hacer1.jpg"; // Cambiar de nuevo a la imagen original
             });
-        });
+        
 
         //Eliminar elementos
         function eliminaElemeDom() {
@@ -121,7 +120,59 @@
             rElemento.replaceWith(reemplazarElemento);    
         }
 
-        
+        function eventoclick() {
+            alert('Consulta las ofertas para destinos de playa')}
+
+        //Poner borde y quitarlo en una imagen pasando el raton por encima
+        const imagenMuseo = document.getElementById("Museo")
+        //Simplificamos gracias a la variable
+        imagenMuseo.addEventListener("mouseenter", () =>
+        imagenMuseo.style.border="2px solid red");
+        imagenMuseo.addEventListener("mouseout", () =>
+        imagenMuseo.style.border="");
+
+        //Eventos de tecla
+        const busqueda = document.querySelector(".busqueda");
+        busqueda.addEventListener("keyup", ()=> {
+            console.log("Escribiendo...");
+        });
+        //Copiar texto
+        busqueda.addEventListener("copy", ()=> {
+            console.log("Copiando...");
+        });
+        //Cortar texto
+        busqueda.addEventListener("cut", ()=> {
+            console.log("Cortando...");
+        })
+        //Pegar texto
+        busqueda.addEventListener("paste", ()=> {
+            console.log("Pegando...");
+        })
+        //Salir del cuadro de texto. Uso, validar el campo de texto
+        busqueda.addEventListener("blur", ()=> {
+            console.log("Saliendo...");
+        })
+
+        const formu = document.querySelector("#formulario");
+        //Para reemplazar tareas anteriores
+        formu.addEventListener("submit", (valor)=>{
+            //forzamos a que lo anterior no lo haga y solo haga lo que le mandamos ahora
+            valor.preventDefault();
+            alert("Has pulsado el formulario");
+
+        });
+        formu.addEventListener("submit", validarDatos);
+        function validarDatos(valor) {
+            valor.preventDefault();
+            alert("Orden final");
+        }
+
+//Siempre lo ultimo
+}
+
+
+
+
     </script>
 </head>
 <body onload="localizaElemDom()";>
@@ -154,7 +205,7 @@
             <h2>Que Hacer</h2>
             <div class="contenedor-cards">
                     <div class="card">
-                        <img src="img/hacer1.jpg">
+                        <img src="img/hacer1.jpg" >
                         <div class="info">
                             <p class="categoria concierto">PLAYAS</p>
                             <p class="titulo">Mejores playas 2022</p>
@@ -171,7 +222,7 @@
                     
                     </div> <!--.card-->
                     <div class="card">
-                        <img src="img/hacer3.jpg">
+                        <img src="img/hacer3.jpg" id="Museo">
                         <div class="info">
                             <p class="categoria clase">TURISMO CULTURAL</p>
                             <p class="titulo">Museos y lugares emblemáticos</p>
@@ -179,7 +230,7 @@
                         </div>
                     </div> <!--.card-->
                     <div class="card">
-                        <img src="img/hacer4.jpg">
+                        <img src="img/hacer4.jpg" onclick="eventoclick()">
                         <div class="info">
                             <p class="categoria paseo">TURISMO DEPORTIVO</p>
                             <p class="titulo">Manteniendo la forma</p>
