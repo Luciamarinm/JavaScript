@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*WeakMaps
+        -Son variantes de Maps que guardan de forma débil (weak) las clases y los valores.
+            Esto quiere decir que si no se utilizan a lo largo del programa, son eliminados
+            de la memoria(por el garbage collector).
+        -Las claeves (keys) de los WeakMaps pueden ser objetos, arrays o funciones, pero no primitivos.
+        -Los WeakMaps tienen los métodos:
+            -get()
+            -set()
+            -has()
+            -delete()
+        -No son iterables
+        */
+        const e1 = {empresa: "Areea"};
+        const almacenE = new WeakMap();
+        almacenE.set(e1, "Juan");
+        console.log(almacenE);
+
+    </script>
+</body>
+</html>
