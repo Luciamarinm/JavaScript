@@ -95,6 +95,32 @@
         elementosBorrados.children[3].remove();
         }
 
+        //Crear elemento
+        function crearElemDom() {
+            //Apunta donde quiere añadirlo
+            const nElemento= document.querySelector(".contenedor-cards").children[1];
+            //Crea el elemento
+            const nuevoElemento = document.createElement("div");
+            //Diseña el nuevo elemento
+            nuevoElemento.textContent="Nuevo elemento";  
+            //Ubica donde añadirlo, justo antes de
+            nElemento.parentNode.insertBefore(nuevoElemento,nElemento);    
+        }
+
+            //Crear elemento
+            function reemplazarElemDom() {
+            //Apunta donde quiere reemplazarlo
+            const rElemento= document.querySelector(".contenedor-cards").children[1].children[0];
+            //Crea el elemento
+            const reemplazarElemento = document.createElement("div");
+            //Diseña el nuevo elemento
+            reemplazarElemento.style.width="200px";
+            reemplazarElemento.style.height="200px";
+            reemplazarElemento.textContent="Reemplazar elemento";  
+            //Ubica donde reempplazarlo
+            rElemento.replaceWith(reemplazarElemento);    
+        }
+
         
     </script>
 </head>
@@ -160,8 +186,11 @@
                             <p class="precio">A partir de 650 €</p>
                         </div>
                         <input type = "button" value="Eliminar" onclick="eliminaElemeDom()">
+                        
                     </div> <!--.card-->
             </div> <!--.columnas4 cuadros-->
+            <input type = "button" value="Crear" onclick="crearElemDom()">   
+            <input type = "button" value="Reemplazar" onclick="reemplazarElemDom()">
         </section>
 
 
