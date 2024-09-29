@@ -17,7 +17,7 @@
             });
 
             //Tipos de bucles para usar todas las cards
-            const card4 = document.querySelectorAll('.card');
+         /*   const card4 = document.querySelectorAll('.card');
             for(let i = 0 ; i < card4.length ; i++) {
                 card4[i].addEventListener('mouseover', function(){
                 alert("Has pasado el ratón por encima");
@@ -27,13 +27,8 @@
                 i.addEventListener('mouseover', function(){
                 alert("Has pasado el ratón por encima otra vez");
                 });
-            }
+            } */
 
-
-            
-            
-
-            
             const b1 = document.querySelector('.premium .info .btn-mi-viaje');
             b1.addEventListener('click', function(){
                 alert("Has clicado el botón");
@@ -44,13 +39,16 @@
             });
             //Para acceder al texto incluso si hay visibility: hidden
             const encabezado = document.querySelector(".contenido-hero h1").textContent;
+            const encabezado2 = document.querySelector("h1");
+            encabezado2.style.fontFamily="Comic Sans MS";
+            encabezado2.style.backgroundColor="black";
+            //Añadir una clase 
+            encabezado2.classList.add("clase-personalizada");
             console.log(encabezado);
             //Para cambiar texto
             const encabezado3 = document.querySelector(".contenido-hero h1").textContent= "Fantasía";
             console.log(encabezado);
             //Para acceder al texto sin hidden
-            const encabezado2 = document.querySelector(".contenido-hero h1").innerText;
-            console.log(encabezado);
 
         //Cambiar el texto si se pasa por encima
         const cambiarTexto = document.querySelector('.mi-viaje-plus');
@@ -63,6 +61,23 @@
                 }
             });
         }
+
+        //Cambiar una imagen por otra
+        //Ojo sin el evento DOMContentLoaded no funciona
+        document.addEventListener("DOMContentLoaded", function() {
+            const imagen = document.querySelector(".card img");
+
+            imagen.addEventListener("mouseover", function() {
+                imagen.src = "img/hacer3.jpg";
+            });
+
+            imagen.addEventListener("mouseout", function() {
+                imagen.src = "img/hacer1.jpg"; // Cambiar de nuevo a la imagen original
+            });
+        });
+
+
+        
     </script>
 </head>
 <body onload="localizaElemDom()";>
