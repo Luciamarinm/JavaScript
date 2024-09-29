@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /* MAPS
+        -Estructuras similares a los arrays formadas por parejas clave-valor
+        -Cada clave tiene su valor asociado
+        -Clave y valor pueden ser de cualquier tipo
+        -Son de alto rendimiento, rápidos
+        -Más rápidos y eficientes que los objetos*/
+        const e1= new Map();
+        e1.set("Nombre", "Antonio");
+        e1.set("Salario", 2500);
+        e1.set("Antigüedad", 5);
+        e1.set("Activo", true);
+        e1.set("Com trim1", [1050, 1200, 1125]);
+        console.log(e1.has("Antigüedad"));
+        console.log(e1.get("Salario"));
+        console.log(e1);
+        const e2 = new Map(e1);
+        e2.set("Nombre", "Lucía");
+        console.log(e2);
+        e1.clear();
+        console.log(e1);
+
+        e2.forEach(function(value,key) {
+            document.write(key + " " + value);
+            document.write("<br>");
+        });
+        e2.forEach((value,key) =>{
+            document.write(key + " " + value);
+            document.write("<br>");
+        });
+
+        for(const datos of e2.entries()) {
+            document.write(datos +"<br>");
+        }
+        for(const datos of e2.keys()) {
+            document.write(datos +"<br>");
+        }
+    </script>
+</body>
+</html>
