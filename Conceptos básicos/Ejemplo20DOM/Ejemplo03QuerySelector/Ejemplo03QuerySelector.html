@@ -16,6 +16,7 @@
                 alert("Has clicado la card");
             });
 
+            //Tipos de bucles para usar todas las cards
             const card4 = document.querySelectorAll('.card');
             for(let i = 0 ; i < card4.length ; i++) {
                 card4[i].addEventListener('mouseover', function(){
@@ -27,6 +28,11 @@
                 alert("Has pasado el ratón por encima otra vez");
                 });
             }
+
+
+            
+            
+
             
             const b1 = document.querySelector('.premium .info .btn-mi-viaje');
             b1.addEventListener('click', function(){
@@ -36,7 +42,26 @@
             card3.addEventListener('click', function(){
                 alert("Has clicado el formulario");
             });
+            //Para acceder al texto incluso si hay visibility: hidden
+            const encabezado = document.querySelector(".contenido-hero h1").textContent;
+            console.log(encabezado);
+            //Para cambiar texto
+            const encabezado3 = document.querySelector(".contenido-hero h1").textContent= "Fantasía";
+            console.log(encabezado);
+            //Para acceder al texto sin hidden
+            const encabezado2 = document.querySelector(".contenido-hero h1").innerText;
+            console.log(encabezado);
 
+        //Cambiar el texto si se pasa por encima
+        const cambiarTexto = document.querySelector('.mi-viaje-plus');
+            
+            cambiarTexto.addEventListener('mouseover', function(){
+                if(document.querySelector(".mi-viaje-plus").textContent== "Con viajes Píldoras") {
+                    document.querySelector(".mi-viaje-plus").textContent= "Increible";
+                } else {
+                    document.querySelector(".mi-viaje-plus").textContent= "Con viajes Píldoras";
+                }
+            });
         }
     </script>
 </head>
