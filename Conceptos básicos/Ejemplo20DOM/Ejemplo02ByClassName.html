@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .viejas{
+            border:solid;
+            border-width: 5px;
+            border-color: black;
+
+        }
+        .nuevas{
+            border:solid;
+            border-width: 5px;
+            border-color: black;
+
+        }
+    </style>
+        <script type="text/javascript">
+            function resaltarImagenes() {
+            document.getElementById("casasViejas").addEventListener("click", function() {
+                const viejas = document.getElementsByClassName("viejas");
+        
+                // Para todos los elementos con la clase "viejas"
+                for (let i = 0; i < viejas.length; i++) {
+                    // Verificamos el color actual del borde
+                    if (viejas[i].style.borderColor === "black") {
+                        // Si el borde es rojo, lo cambiamos a negro
+                        viejas[i].style.borderColor = "red";
+                    } else {
+                        // Si el borde no es rojo (o es negro), lo cambiamos a rojo
+                        viejas[i].style.borderColor = "black";
+                    }
+                }
+            });
+            document.getElementById("casasNuevas").addEventListener("click", function() {
+                const nuevas = document.getElementsByClassName("nuevas");
+                //Para un elemento concreto
+                //viejas[0].style.border = "solid 5px red";
+                //Para todos los elementos
+                
+                for(let i = 0 ; i<nuevas.length; i++) {
+                    if(nuevas[i].style.borderColor == "black"){
+                        nuevas[i].style.borderColor = "blue"; 
+                    }else {
+                        nuevas[i].style.borderColor = "black"; 
+                    }
+                }
+                
+    
+            });
+        }
+        </script>
+</head>
+<body onload="resaltarImagenes()";>
+    <input type="button" id="casasViejas" value="Viejas">
+    <input type="button" id="casasNuevas" value="Nuevas">
+    <table width="100%">
+        <tr style="text-align: center;">
+            <td><img src="Archivos/descarga (1).jpg" width="300px" class="viejas"</td>
+            <td><img src="Archivos/descarga (3).jpg" width="300px" class="viejas"</td>
+            <td><img src="Archivos/descarga (5).jpg" width="300px" class="viejas"</td>
+        </tr>
+        <tr style="text-align: center;"></tr>
+            <td><img src="Archivos/descarga.jpg" width="300px" class="nuevas"</td>
+            <td><img src="Archivos/descarga (2).jpg" width="300px" class="nuevas"</td>
+            <td><img src="Archivos/descarga (4).jpg" width="300px" class="nuevas"</td>
+        </tr>
+    </table>
+</body>
+</html>
