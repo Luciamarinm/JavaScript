@@ -17,7 +17,7 @@
             });
 
             //Tipos de bucles para usar todas las cards
-         /*   const card4 = document.querySelectorAll('.card');
+      /*      const card4 = document.querySelectorAll('.card');
             for(let i = 0 ; i < card4.length ; i++) {
                 card4[i].addEventListener('mouseover', function(){
                 alert("Has pasado el ratón por encima");
@@ -28,6 +28,16 @@
                 alert("Has pasado el ratón por encima otra vez");
                 });
             } */
+           
+            const cards5 = document.querySelector(".contenedor-cards");
+            //Los saltos de línea también están considerados child nodes
+            console.log(cards5.childNodes);
+            //Aquí solo a los hijos
+            console.log(cards5.children);
+            //Un elemento determinado o uno dentro de otro
+            console.log(cards5.children[2].children[1].textContent="Hola");
+
+
 
             const b1 = document.querySelector('.premium .info .btn-mi-viaje');
             b1.addEventListener('click', function(){
@@ -47,10 +57,12 @@
             console.log(encabezado);
             //Para cambiar texto
             const encabezado3 = document.querySelector(".contenido-hero h1").textContent= "Fantasía";
-            console.log(encabezado);
+            console.log(encabezado3);
             //Para acceder al texto sin hidden
-
-        //Cambiar el texto si se pasa por encima
+            const encabezado4 = document.querySelector(".contenido-hero h1").innerText;
+            console.log(encabezado4);
+        
+            //Cambiar el texto si se pasa por encima
         const cambiarTexto = document.querySelector('.mi-viaje-plus');
             
             cambiarTexto.addEventListener('mouseover', function(){
@@ -76,6 +88,12 @@
             });
         });
 
+        //Eliminar elementos
+        function eliminaElemeDom() {
+        const elementosBorrados= document.querySelector(".contenedor-cards");
+     //   console.log(elementosBorrados.children[3]);
+        elementosBorrados.children[3].remove();
+        }
 
         
     </script>
@@ -124,6 +142,7 @@
                             <p class="titulo">Paisajes increibles</p>
                             <p class="precio">A partir de 750 €</p>
                         </div>
+                    
                     </div> <!--.card-->
                     <div class="card">
                         <img src="img/hacer3.jpg">
@@ -140,6 +159,7 @@
                             <p class="titulo">Manteniendo la forma</p>
                             <p class="precio">A partir de 650 €</p>
                         </div>
+                        <input type = "button" value="Eliminar" onclick="eliminaElemeDom()">
                     </div> <!--.card-->
             </div> <!--.columnas4 cuadros-->
         </section>
