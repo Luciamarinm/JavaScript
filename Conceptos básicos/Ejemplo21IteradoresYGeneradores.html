@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        //Iteradores
+        //Son útiles cuando hay una lista muy grande de elementos.
+        //Permite cargar los datos por partes.
+        //Buen uso para asignar id.
+        /*Ventajas:
+        -Abstracción: Interfaz común para recorrer todo tipo de colecciones.
+        -Control preciso: Permite pausar, reanudar o saltar elementos de una colección.
+        -Laziness (evaluación perezosa): General elementos sobre la marcha solo cuando son
+        necesarios. Mejora de recursos.
+        -Integración con elementos JavaScript: Integraciín con bucle for-of sintaxis 
+        de propagación y generadores.
+        -Adaptabilidad: Se pueden crear iteradores personalizados para colecciones personalizadas.
+        Se pueden crear iteradores que filtren o modifiquen elementos durante la iteración.
+        */
+        const colores=["Azul", "Rojo", "Verde"];
+        const miIterador = colores[Symbol.iterator]();
+        //Indica done: false(ya que no es el último elemento) y el valor.
+        console.log(miIterador.next());
+
+        //Generadores
+        //Función que permite pausar su ejecución en un punto específico y reanudarla más tarde.
+        //Sirve para bloquear el hilo de ejecución principal y dividir el trabajo en fragmentos 
+        //más pequeños de forma asíncrona.
+        function* contador() {
+            let i= 0;
+            while(true) {
+                yield i;
+                i++;
+            }
+        }
+        //No se necesita Symbol.iterador para hacer un iterador cuando se usan generadores.
+        const iterador = contador();
+        console.log(iterador.next().value);
+        console.log(iterador.next().value);
+        console.log(iterador.next().value);
+
+
+
+
+    </script>
+</body>
+</html>
