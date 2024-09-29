@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    //WeakSets
+    /*-Solo almacenan objetos
+    -No tiene propiedad size
+    -No es iterable
+    -Métodos: add(), delete(), has()
+    -Sus objetos desaparecen de memoria si no se utilizan
+    */
+        const miWeakset = new WeakSet();
+        const e1 = {
+            nombre: "Juan",
+            salario: 35000,
+            antiguedad: 5
+        }
+        const e2 = {
+            nombre: "Lucía",
+            salario: 30000,
+            antiguedad: 3
+        }
+
+        miWeakset.add(e1);
+        miWeakset.add(e2);
+        console.log(miWeakset);
+    </script>
+    
+</body>
+</html>
