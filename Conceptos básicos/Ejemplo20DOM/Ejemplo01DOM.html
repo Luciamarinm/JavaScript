@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="personales" name="Datos personales" >
+        <p id="Programación" >Curso de programación</p>
+        <p id="contenidos" style="display: none">Python<br>Java<br>C#</p>
+        <p id="Web">Curso de web</p>
+        <p id="contenidosWeb"></p>
+    </form>
+    <form id="profesionales" name="Datos profesionales">
+
+    </form>
+    <script type="text/javascript">
+        let e1;
+        let e2;
+        let e3;
+        //Info del head
+        e1 = document.head;
+        e2 = document.body;
+        console.log(e1);
+        console.log(e2);
+        e3 = document.forms[0].name;
+        console.log(e3);
+        //Desplegar usando style display
+        let e4 = document.getElementById("Programación").addEventListener("click", mostrarCursosP);
+        function mostrarCursosP() {
+            //block desactiva el none de display y muestra el contenido al click.
+            if(document.getElementById("contenidos").style.display=="none") {
+                document.getElementById("contenidos").style.display="block";
+            } else {
+                document.getElementById("contenidos").style.display="none"
+            }
+        }
+        //Desplegar usando innerHTML
+        let e5 = document.getElementById("Web").addEventListener("click", mostrarCursosW);
+        function mostrarCursosW() {
+            //Para mostrar
+            if(document.getElementById("contenidosWeb").innerHTML=="") {
+                document.getElementById("contenidosWeb").innerHTML="PHP<br>JavaScript";
+            }
+            //Para ocultar
+            else {
+                document.getElementById("contenidosWeb").innerHTML=""
+            }
+            
+        }
+
+        console.log(e4);
+
+
+    </script>
+</body>
+</html>
