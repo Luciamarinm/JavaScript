@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Curso JQUERY</h1>
+    <p id="parrafo1" style="color: red">Hola
+        <p class="parrafoDentro">Hola 2</p>
+    </p>
+    <p class="parrafo2">Hola 2</p>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        //Estructura básica
+     //   $(selector).action()
+        /*-$ acceso a jquery
+        -selector
+        -action
+        */
+       //Hacer el codigo dentro de esta función para que cargue bien todo el documento
+        $(document).ready(function() {
+        /*    $("h1").hide();
+            $("#parrafo1").hide();
+            $(".parrafo2").hide();
+            $("p.parrafoDentro").hide();*/
+            //Variable
+            var ache1 =$("h1");
+            $("h1").click(function() {
+                ache1.hide();
+             //Poner tiempo   $("h1").hide(5000);
+            });
+
+            //Cambiar estilos CSS
+            var colorTexto = $("#parrafo1").css("color");
+            console.log(colorTexto);
+            //Cambiamos color
+            $("#parrafo1").css("color", "blue");
+            //Para añadir o editar más de un estilo
+            $("#parrafo1").css({"color": "blue", "background-color": "yellow"});
+
+            
+
+
+
+        })
+        
+    </script>
+</body>
+</html>
